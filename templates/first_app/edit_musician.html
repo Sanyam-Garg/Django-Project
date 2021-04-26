@@ -1,0 +1,16 @@
+{% extends 'first_app/base.html' %}
+
+{% block content %}
+    <h3>Edit Musician</h3>
+
+    <form method = 'POST'>
+        {{form.as_p}}
+        {% csrf_token %}
+
+        <input type = "submit", name = "submit", value = "Update" class = "btn btn-info btn-sm">
+    </form>
+
+    <br>
+
+    <a href = "{% url 'first_app:delete_musician' artist_id=artist.id %}" class = "btn btn-danger btn-sm" onclick = "return confirm('Delete this artist?')">Delete</a>
+{% endblock content %}
